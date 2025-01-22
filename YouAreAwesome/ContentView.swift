@@ -30,14 +30,6 @@ struct ContentView: View {
             Button("Press Me!") {
                 let message1 = "You are Awesome!"
                 let message2 = "You are Great!"
-            
-//                if message == message1{
-//                    message = message2
-//                    imageString = imageString2
-//                }else{
-//                    message = message1
-//                    imageString = imageString1
-//                }
                 
                 message = (message == message1 ? message2 : message1)
                 imageName = (imageName == "image0" ? "image1" : "image0")
