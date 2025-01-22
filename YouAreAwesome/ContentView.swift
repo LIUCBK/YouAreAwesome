@@ -26,26 +26,20 @@ struct ContentView: View {
                 .foregroundStyle(.red)
             Spacer()
             
-            
             Button("Press Me!") {
                 let message1 = "You are Awesome!"
                 let message2 = "You are Great!"
                 
                 message = (message == message1 ? message2 : message1)
                 imageName = (imageName == "image0" ? "image1" : "image0")
-                
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .tint(.blue)
-            
-            
         }
         .padding()
-        
     }
 }
-
 #Preview {
     ContentView()
 }
