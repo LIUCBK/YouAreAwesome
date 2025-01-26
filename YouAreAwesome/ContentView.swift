@@ -35,35 +35,13 @@ struct ContentView: View {
             Button("Show Message") {
                 let messages = ["You are Awesome!",
                                 "When the Genius Bar Needs Help, They Call You!",
-                            "You are Great!",
-                            "You Are Fantastic!",
-                            "Fabulous? That's You!"]
+                                "You are Great!",
+                                "You Are Fantastic!",
+                                "Fabulous? That's You!"]
                 
-                message = messages[messageNumber]
-                messageNumber += 1
-                if messageNumber == messages.count {
-                    messageNumber = 0
-                }
+                message = messages[Int.random(in: 0...messages.count-1)]
                 
-                imageName = "image\(imageNumber)"
-                if imageNumber > 9{
-                    imageNumber = 0
-                }
-                imageNumber += 1
-                
-                
-//                let message1 = "You are Awesome!"
-//                let message2 = "You are Great!"
-//                let message3 = "You Are Fantastic!"
-//                let message4 = "Fabulous? That's You!"
-                
-//              message = (message == message1 ? message2 : message1)
-//              imageName = (imageName == "image0" ? "image1" : "image0")
-                
-                //TODO: - Update the imageName variable -
-//                imageNumber = imageNumber + 1
-             
-                
+                imageName = "image\(Int.random(in: 0...9))"
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
