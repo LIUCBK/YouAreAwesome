@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var imageName = ""
     @State private var imageNumber = 0
     @State private var messageNumber = 0
+    @State private var lastMessageNumber = -1 // lastMessageNumber will never be -1
+    @State private var lastImageNumber = -1
     var body: some View {
         VStack {
             Text(message)
@@ -39,9 +41,20 @@ struct ContentView: View {
                                 "You Are Fantastic!",
                                 "Fabulous? That's You!"]
                 
-                message = messages[Int.random(in: 0...messages.count-1)]
+                var messageNumber = Int.random(in: 0...messages.count-1)
+                while messageNumber == lastMessageNumber{
+                    messageNumber = Int.random(in: 0...messages.count-1)
+                }
+                message = messages[messageNumber]
+                lastMessageNumber = messageNumber
+                    
+            
+                repeat {
+                    imageNumber = Int.random(in: 0...9)
+                }while imageNumber == lastImageNumber
+                imageName = "image\(imageNumber)"
+                lastImageNumber = imageNumber
                 
-                imageName = "image\(Int.random(in: 0...9))"
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
