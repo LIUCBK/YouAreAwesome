@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var lastSoundNumer = -1
     @State private var audioPlayer: AVAudioPlayer!
     let numberOfImgaes = 10 //images labeled 0 to 10
-    let numberOfSound = 6
+    let numberOfSound = 6 //images labeled 0 to 6
     var body: some View {
         VStack {
             Text(message)
@@ -57,14 +57,12 @@ struct ContentView: View {
                 lastMessageNumber = messageNumber
                     
                 
-                
                 var imageNumber: Int
                 repeat {
                     imageNumber = Int.random(in: 0...(numberOfImgaes-1))
                 } while imageNumber == lastImageNumber
                 imageName = "image\(imageNumber)"
                 lastImageNumber = imageNumber
-                
                 
                 
                 var soundNumber: Int
@@ -84,7 +82,6 @@ struct ContentView: View {
                 } catch{
                     print("😡 ERROR: \(error.localizedDescription) creating audioPlayer")
                 }
-                
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
