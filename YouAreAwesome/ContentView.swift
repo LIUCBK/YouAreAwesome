@@ -72,12 +72,13 @@ struct ContentView: View {
                     if soundIsOn{
                         playSound(soundName: "sound\(lastSoundNumer)")
                     }
-            
+                    
                 }
                 .buttonStyle(.borderedProminent)
                 .font(.title2)
-                .tint(.blue)
+                // .tint(.blue)
             }
+            .tint(.accentColor)
         }
         .padding()
     }
@@ -104,10 +105,14 @@ struct ContentView: View {
         } catch{
             print("😡 ERROR: \(error.localizedDescription) creating audioPlayer")
         }
-        
     }
-
 }
-#Preview {
+
+#Preview("Light Mode") {
     ContentView()
+        .preferredColorScheme(.light)
+}
+#Preview("Dark Mode") {
+    ContentView()
+        .preferredColorScheme(.dark)
 }
